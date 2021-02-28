@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css" />
+    <title>API Fun House</title>
+</head>
+<body>
+    
+    <h1> API Fun House</h1>
+
+    <div class="btn-group-vertical">
+        <button type="button" id="btnLocation"> Click here to know your location </button>
+        <p id="textLocation"> Your current location is: </p>
+        <button type="button" id="btnShowLocation">Click here to show your location on Google Maps </button>
+        <div id="map"></div>
+        <button type="button" id="btnVibrate">Click here to vibrate your phone </button>
+        <button type="button" id="btn">Click here to vibrate your phone </button>
+        <button type="button" id="btn">Click here to vibrate your phone </button>
+        <button type="button" id="btn">Click here to vibrate your phone </button>
+        <div class="btn-group" role="group">
+            <button id="dropdownId" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownId">
+                <a class="dropdown-item" href="#"></a>
+                <a class="dropdown-item" href="#"></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="/index.js"></script>
+    <script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBS9H4H9p8Rq3Qbbsoy5FN1ZpybcI3a13k&callback=initMap">
+</script>
+    
+
+</body>
+</html>
