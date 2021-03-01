@@ -1,113 +1,108 @@
-function initMap(){
+/* This was an initial test of understanding location
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition((position) => {
+    console.log("Latitude: " + position.coords.latitude);
+    console.log("Longitude: " + position.coords.longitude);
+  });
+} else {
+  console.log("geolocation not available");
+}
 
-    //detects user location using longitude and latitude
+*/
 
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(position => {
-        console.log('Latitude: ' + position.coords.latitude);
-        console.log('Longitude: ' + position.coords.longitude);
-            });
-        } else {
-            console.log('geolocation not available');
-        }
+function initMap() {
 
-    
-    //let userPositionLat = GeolocationCoordinates.latitude;
-    
-    //let userPositionLong = GeolocationCoordinates.longitude;
+  btnShowLocation = document.getElementById("btnShowlocation");
 
-    btnShowLocation = document.getElementById('btnShowlocation');
-    
-    let textLocation = document.getElementById('textLocation');
+  let btnLocation = document.getElementById("btnLocation");
+  let latText = document.getElementById("latitude");
+  let longText = document.getElementById("longitude");
 
-        console.log(GeolocationCoordinates.latitude).;
+  btnLocation.addEventListener("click", function () {
+    navigator.geolocation.getCurrentPosition((position) => {
+      let lat = position.coords.latitude;
+      let long = position.coords.longitude;
 
-    // Map option
-
-    let options = {
-        center: {lat: GeolocationCoordinates.latitude, lng:GeolocationCoordinates.longitude },
-        zoom: 10
-    }
-
-    //New Map
-    map = new google.maps.Map(document.getElementById("map"),options)
-
-    //listen for click on map location
-
-    google.maps.event.addListener(map, "click", (event) => {
-        //add Marker
-        addMarker({location:event.latLng});
-    })
-
-    //Add Markers to Array
-    //
-
-    let MarkerArray = [ {location:{lat: 37.9922, lng: -1.1307}, 
-        imageIcon: "https://img.icons8.com/nolan/2x/marker.png", 
-        content: `<h2>Murcia City</h2>`},
-
-        {location:{lat: 39.4699, lng: -0.3763}},
-
-        {location:{lat: 38.5411, lng: -0.1225},content: `<h2>Benidorm City</h2>` }
-
-
-
-    ]
-
-    // loop through marker
-    for (let i = 0; i < MarkerArray.length; i++){
-        addMarker(MarkerArray[i]);
-
-    }
-
-    // Add Marker
-
-    function addMarker(property){
-
-        const marker = new google.maps.Marker({
-            position:property.location,
-            map:map,
-            //icon: property.imageIcon
-            });
-
-            // Check for custom Icon
-
-            if(property.imageIcon){
-                // set image icon
-                marker.setIcon(property.imageIcon)
-            }
-
-            if(property.content){
-
-            const detailWindow = new google.maps.InfoWindow({
-            content: property.content
+      latText.textContent = lat.toFixed(2);
+      longText.textContent = long.toFixed(2);
     });
-    
-    marker.addListener("mouseover", () =>{
-        detailWindow.open(map, marker);
-    })
-}
+  });
+
+
+
+  // Map option
+
+  let options = {
+    center: {
+      lat: latTxtValue,
+      lng: longTxtValue,
+    },
+    zoom: 10,
+  };
+
+  console.log(latText);
+  console.log(longText);
+
+  //New Map
+  map = new google.maps.Map(document.getElementById("map"), options);
+
+  //listen for click on map location
+
+  google.maps.event.addListener(map, "click", (event) => {
+    //add Marker
+    addMarker({ location: event.latLng });
+  });
+
+  //Add Markers to Array
+  //
+
+  let MarkerArray = [
+    {
+      location: { lat: 37.9922, lng: -1.1307 },
+      imageIcon: "https://img.icons8.com/nolan/2x/marker.png",
+      content: `<h2>Murcia City</h2>`,
+    },
+
+    { location: { lat: 39.4699, lng: -0.3763 } },
+
+    {
+      location: { lat: 38.5411, lng: -0.1225 },
+      content: `<h2>Benidorm City</h2>`,
+    },
+  ];
+
+  // loop through marker
+  for (let i = 0; i < MarkerArray.length; i++) {
+    addMarker(MarkerArray[i]);
+  }
+
+  // Add Marker
+
+  function addMarker(property) {
+    const marker = new google.maps.Marker({
+      position: property.location,
+      map: map,
+      //icon: property.imageIcon
+    });
+
+    // Check for custom Icon
+
+    if (property.imageIcon) {
+      // set image icon
+      marker.setIcon(property.imageIcon);
     }
 
+    if (property.content) {
+      const detailWindow = new google.maps.InfoWindow({
+        content: property.content,
+      });
+
+      marker.addListener("mouseover", () => {
+        detailWindow.open(map, marker);
+      });
+    }
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*
 
