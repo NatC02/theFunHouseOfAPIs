@@ -63,21 +63,19 @@ function showError(error) {
 //The navigator Interface has alot of other uses and theyre really interesting, I'm going to implement some of those in an HTML sort of 
 //play house to test each of them and understand how they work
 
-btnVibrate = document.createElement('button');
+btnVibrate = document.getElementById('btnVibrate');
 
-let browserSupportsNav = new Promise ((resolve, reject) =>  {
-  //check for the different versions of the vibrate api (comes with HTML5)
-  navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate; 
-  if (navigator.vibrate) {
-    // checks if api is supported for browser
-    btnVibrate.addEventListener('click', function(ev) {
-    console.log('Vibration has worked!');
-    navigator.vibrate(1000);
-        });
-    }
+//check for the different versions of the vibrate api (comes with HTML5)
+navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
 
-  (function(ev) {
-    console.log("you can try making your own theme, also this api will drain your battery! Its too much power!")
-    })();
+if (navigator.vibrate) {
+// checks if api is supported for browser
+btnVibrate.addEventListener('click', function(ev) {
+console.log('Vibration has worked!');
+navigator.vibrate(1000);
+    });
+}
 
-});
+(function(ev) {
+console.log("you can try making your own theme, also this api will drain your battery! Its too much power!")
+})();
