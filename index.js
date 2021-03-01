@@ -10,6 +10,7 @@ if (navigator.geolocation) {
 
 */
 
+
 btnShowLocation = document.getElementById("btnShowlocation");
 
   let btnLocation = document.getElementById("btnLocation");
@@ -26,24 +27,23 @@ btnShowLocation = document.getElementById("btnShowlocation");
     });
   });
 
-  let x = document.getElementById("demo");
+
+let textUserlocation = document.getElementById("textUserlocation");
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition, showError);
   } else { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
+    textUserlocation.textContent = "Geolocation is not supported by this browser.";
   }
 }
-
-btnShowLocation.onclick = showPosition ();
 
 function showPosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   let latlon = new google.maps.LatLng(lat, lon)
-  let mapholder = document.getElementById('map')
-  mapholder.style.height = '250px';
-  mapholder.style.width = '500px';
+  let mapholder = document.getElementById('mapholder')
+  mapholder.style.height = '700px';
+  mapholder.style.width = '100%';
 
   let myOptions = {
     center:latlon,zoom:14,
@@ -59,20 +59,19 @@ function showPosition(position) {
 function showError(error) {
   switch(error.code) {
     case error.PERMISSION_DENIED:
-      x.innerHTML = "User denied the request for Geolocation."
+      textUserLocation.innerHTML = "User denied the request for Geolocation."
       break;
     case error.POSITION_UNAVAILABLE:
-      x.innerHTML = "Location information is unavailable."
+      textUserLocation.innerHTML = "Location information is unavailable."
       break;
     case error.TIMEOUT:
-      x.innerHTML = "The request to get user location timed out."
+      textUserLocation.innerHTML = "The request to get user location timed out."
       break;
     case error.UNKNOWN_ERROR:
-      x.innerHTML = "An unknown error occurred."
+      textUserLocation.innerHTML = "An unknown error occurred."
       break;
   }
 }
-
 
 
 /*
