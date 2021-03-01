@@ -64,6 +64,7 @@ function showError(error) {
 //play house to test each of them and understand how they work
 
 btnVibrate = document.getElementById('btnVibrate');
+confirmVibrate = document.getElementById('messageVibration')
 
 //check for the different versions of the vibrate api (comes with HTML5)
 navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
@@ -71,6 +72,7 @@ navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mo
 if (navigator.vibrate) {
 // checks if api is supported for browser
 btnVibrate.addEventListener('click', function(ev) {
+confirmVibrate.textContent = "The device has vibrated";
 console.log('Vibration has worked!');
 navigator.vibrate(1000);
     });
@@ -79,3 +81,12 @@ navigator.vibrate(1000);
 (function(ev) {
 console.log("you can try making your own theme, also this api will drain your battery! Its too much power!")
 })();
+
+//Here I will attempt to grab user information about the network and their connection
+//Mind you this is an experimental, so some of these 
+
+
+
+//sThe slower the connection the worse the call quality in bit rate
+//It will take your your network information and after youve recorded your voice using audio it will lower
+//increase the bitrate depending on your network upload and download speed
