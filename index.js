@@ -89,6 +89,36 @@ console.log("you can try making your own theme, also this api will drain your ba
 
 let connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
 
+navigator.webkitConnection;
+let type = connection.effectiveType;
+const updateConnectionStatus = () => {
+  console.log(`Connection type changed from ${type} to ${connection.effectiveType}`);
+  type = connection.effectiveType;
+}
+
+
+
+connection.addEventListener('change', updateConnectionStatus);
+
+/*
+
+Commneted it out because this might be an outdate implementation that was recently chnaged by W3C standards (I think not sure)
+
+switch(connection.type) {
+  case connection.CELL_3G:
+      connectionBand = 'Medium Bandwidth';
+      bodyClass = 'medium-bandwidth';
+  break;
+  case connection.CELL_2G:
+      connectionBand = 'Low Bandwidth';
+      bodyClass = 'low-bandwidth';
+  break;
+  default:
+      connectionBand = 'High Bandwidth';
+      bodyClass = 'high-bandwidth';
+}
+
+*/
 
 class userNetWorkInfo {
 
