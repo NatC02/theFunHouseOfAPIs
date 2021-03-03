@@ -83,10 +83,20 @@ console.log("you can try making your own theme, also this api will drain your ba
 })();
 
 //Here I will attempt to grab user information about the network and their connection
-//Mind you this is an experimental, so some of these 
+//Mind you this is an experimental, so some of these might not actually work in the future or support could drop altogether
+
+//checking if the browser supports the network information api
+
+let connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
 
 
+class userNetWorkInfo {
 
-//sThe slower the connection the worse the call quality in bit rate
+}
+
+console.log(n)
+
+
+//The slower the connection the worse the call quality in bit rate
 //It will take your your network information and after youve recorded your voice using audio it will lower
 //increase the bitrate depending on your network upload and download speed
