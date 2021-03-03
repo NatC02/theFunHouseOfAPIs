@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>API Fun House</title>
 </head>
 <body>
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBS9H4H9p8Rq3Qbbsoy5FN1ZpybcI3a13k&callback=initMap"></script>
     
     <h1> API Fun House</h1>
 
@@ -27,6 +26,21 @@
         <div id="mapholder"></div>
 
         <button type="button" id="btnVibrate">Click here to vibrate your phone </button>
+
+        <p id="messageVibration">
+            The device has not detected vibration
+        </p>
+
+        <p id="textNetworkSpeedChange">
+            Current network updates: <br> 
+            <span id=textDownlink> </span>
+            <span id="textDonwlinkMax"> </span>
+            <span id=textEffectiveType> </span>
+            <span id="rt"> </span>
+            <span id="saveData"> </span>
+            <span id="type"> </span>
+        </p>
+
         <button type="button" id="btn">Click here to vibrate your phone </button>
         <button type="button" id="btn">Click here to vibrate your phone </button>
         <button type="button" id="btn">Click here to vibrate your phone </button>
@@ -43,5 +57,6 @@
     </div>
     <script src="/index.js"></script>    
 
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBS9H4H9p8Rq3Qbbsoy5FN1ZpybcI3a13k"></script>
 </body>
 </html>
